@@ -1,0 +1,26 @@
+﻿<!--Dictionary 1 Index-->
+@{
+    ViewBag.Title = "IndexDictionary1";
+}
+
+<h2>Dictionary</h2>
+<div class="vertical-menu">
+    <a href="#" onclick="IndexDictionary1()">1. Add one time to Dictionary</a>
+    <a href="#">2. Add Huge List of Items to Dictionary</a>
+    <a href="#">3. Display Dictionary</a>
+    <a href="#">4. Delete from Dictionary</a>
+    <a href="#">5. Clear Dictionary</a>
+    <a href="#">6. Search Dictionary</a>
+    <a href="#">7. Return to Main Menu</a>
+</div>
+<div class="display_output">
+    @foreach (KeyValuePair<string, int> pair in ViewBag.Output)
+    {
+        <p>
+            @pair.Key
+
+            @pair.Value
+        </p>
+    }
+
+</div>

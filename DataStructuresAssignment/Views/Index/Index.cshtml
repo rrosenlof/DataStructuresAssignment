@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<body>
+    <h2 class="center">Index</h2>
+    <div class="w3-bar w3-black center">
+        <a href="@Url.Action("IndexStack", "Stack")" class="w3-bar-item w3-button">1. Stack</a>
+        <a href="@Url.Action("IndexQueue", "Queue")" class="w3-bar-item w3-button">2. Queue</a>
+        <a href="@Url.Action("IndexDictionary", "Dictionary")" class="w3-bar-item w3-button">3. Dictionary</a>
+        <a href="@Url.Action("BYU", "Index")" class="w3-bar-item w3-button">4. Exit</a><!--Needs fixing-->
+    </div>
+</body>
