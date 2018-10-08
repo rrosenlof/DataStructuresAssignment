@@ -14,9 +14,9 @@ namespace DataStructuresAssignment.Controllers
             return View();
         }
 
-        public ActionResult BYU()
+        public ActionResult BYU() /* Exit, redirects to BYU.edu*/
         {
-            return  new RedirectResult("https://www.byu.edu");
+            return new RedirectResult("https://www.byu.edu");
         }
     }
 }

@@ -13,5 +13,11 @@ namespace DataStructuresAssignment.Controllers
         {
             return View();
         }
+
+        /*Methods for each one in the list*/
+        public ActionResult StackReturn() /* Exit, redirects to BYU.edu*/
+        {
+            return new RedirectResult(Url.Action("Index", "Index"));
+        }
     }
 }
