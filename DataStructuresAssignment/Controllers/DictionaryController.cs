@@ -8,46 +8,45 @@ namespace DataStructuresAssignment.Controllers
 {
     public class DictionaryController : Controller
     {
-        Dictionary<string, int> dictStruct = new Dictionary<string, int>();
+        public Dictionary<string, int> dictStruct = new Dictionary<string, int>();
 
         // GET: Dictionary
         public ActionResult IndexDictionary()
         {
+            if (dictStruct != null)
+            {
+                ViewBag.Output = dictStruct;                
+            }
 
-            if (dictStruct != null)
-            {
-                ViewBag.Output1 = dictStruct;
-            }
-            if (dictStruct != null)
-            {
-                ViewBag.Output2 = dictStruct;
-            }
             return View();
         }
 
         public ActionResult IndexDictionary1()
         {
-            dictStruct.Add("test", -1);
-
-            if(dictStruct != null)
-            {
-                ViewBag.Output1 = dictStruct;
-            }
+            dictStruct.Add("TEST CHOICE 1", -1);
             
             return View("IndexDictionary");
         }
 
         public ActionResult IndexDictionary2()
         {
+            int dictLength = dictStruct.Count + 1;
+
             for(int x = 0; x < 2000; x++)
             {
-                dictStruct.Add("test", x+1);
+                dictStruct.Add("test " + (dictLength + x), x+1);
+            }
+            
+            return View("IndexDictionary");
+        }
+
+        public ActionResult IndexDictionary3()
+        {
+            if (dictStruct != null)
+            {
+                ViewBag.Output = dictStruct;
             }
 
-            if(dictStruct != null)
-            {
-                ViewBag.Output2 = dictStruct;
-            }
             return View("IndexDictionary");
         }
 

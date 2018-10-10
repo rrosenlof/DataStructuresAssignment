@@ -8,7 +8,7 @@ namespace DataStructuresAssignment.Models
     public class DictionaryModel
     {
         
-        /*public Dictionary<string, int> dictStructure { get; set; }*/
+        public Dictionary<string, int> dictStructure { get; set; }
         
     }
 }
