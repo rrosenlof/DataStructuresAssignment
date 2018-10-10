@@ -8,8 +8,8 @@ namespace DataStructuresAssignment.Controllers
 {
     public class DictionaryController : Controller
     {
-        public Dictionary<string, int> dictStruct = new Dictionary<string, int>();
-
+        public static Dictionary<string, int> dictStruct = new Dictionary<string, int>();
+        public static int iCounter = 0;
         // GET: Dictionary
         public ActionResult IndexDictionary()
         {
@@ -23,7 +23,9 @@ namespace DataStructuresAssignment.Controllers
 
         public ActionResult IndexDictionary1()
         {
-            dictStruct.Add("TEST CHOICE 1", -1);
+            dictStruct.Add("TEST CHOICE " + iCounter, -1);
+
+            iCounter++;
             
             return View("IndexDictionary");
         }

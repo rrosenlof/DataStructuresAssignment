@@ -13,16 +13,22 @@
     <a href="#">6. Search Dictionary</a>
     <a href="#">7. Return to Main Menu</a>
 </div>
+
+
 <div class="display_output">
 
     @if (ViewBag.Output != null)
     {
-        foreach (KeyValuePair<string, int> pair in ViewBag.Output)
-        {
-            <p>@pair.Key , @pair.Value</p>
-        }
+        <p>
+            @foreach (KeyValuePair<string, int> pair in ViewBag.Output)
+            {
+                @pair.Key @pair.Value
+            }
+        </p>
     }
-   
+
 
 </div>
+
+
 
