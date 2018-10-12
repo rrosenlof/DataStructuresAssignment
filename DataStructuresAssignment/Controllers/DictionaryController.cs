@@ -52,6 +52,28 @@ namespace DataStructuresAssignment.Controllers
             return View("IndexDictionary");
         }
 
+        public ActionResult IndexDictionary4()
+        {
+            if(dictStruct.ContainsKey("test " + iCounter))
+            {
+                dictStruct.Remove("test " + iCounter);
+
+                iCounter--;
+            }
+
+            else if(dictStruct.ContainsKey("TEST CHOICE " + iCounter))
+            {
+                dictStruct.Remove("TEST CHOICE " + iCounter);
+
+                iCounter--; 
+            }
+
+           
+         
+
+            return View("IndexDictionary");
+        }
+
 
     }
 }
