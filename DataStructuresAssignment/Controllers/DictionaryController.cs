@@ -23,20 +23,22 @@ namespace DataStructuresAssignment.Controllers
 
         public ActionResult IndexDictionary1()
         {
-            dictStruct.Add("TEST CHOICE " + iCounter, -1);
-
             iCounter++;
+            dictStruct.Add(" TEST CHOICE " + iCounter +" - ", iCounter);
+
+            
             
             return View("IndexDictionary");
         }
 
         public ActionResult IndexDictionary2()
         {
-            int dictLength = dictStruct.Count + 1;
-
-            for(int x = 0; x < 2000; x++)
+            int x = 0;
+            while(x < 2000)
             {
-                dictStruct.Add("test " + (dictLength + x), x+1);
+                iCounter++;
+                dictStruct.Add(" test " +  iCounter + " - ", iCounter);
+                x++;
             }
             
             return View("IndexDictionary");
@@ -54,22 +56,33 @@ namespace DataStructuresAssignment.Controllers
 
         public ActionResult IndexDictionary4()
         {
-            if(dictStruct.ContainsKey("test " + iCounter))
+            if(dictStruct.ContainsKey(" test " + iCounter + " - "))
             {
-                dictStruct.Remove("test " + iCounter);
+                dictStruct.Remove(" test " + iCounter + " - ");
 
                 iCounter--;
             }
 
-            else if(dictStruct.ContainsKey("TEST CHOICE " + iCounter))
+            else if(dictStruct.ContainsKey(" TEST CHOICE " + iCounter + " - "))
             {
-                dictStruct.Remove("TEST CHOICE " + iCounter);
+                dictStruct.Remove(" TEST CHOICE " + iCounter  + " - ");
 
                 iCounter--; 
             }
 
-           
-         
+            else
+            {
+                //print cannot delete
+
+                iCounter = 0;
+            }
+            
+            return View("IndexDictionary");
+        }
+
+        public ActionResult IndexDictionary5()
+        {
+            dictStruct.Clear();
 
             return View("IndexDictionary");
         }

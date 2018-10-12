@@ -25,5 +25,22 @@ text-decoration: none; /* Remove underline from links */
     display: inherit;
 }
 
+.column {
+    float: left;
+}
 
+.left {
+    width: 20%;
+}
 
+.right {
+    width: 80%;
+    padding-left: 20px;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
