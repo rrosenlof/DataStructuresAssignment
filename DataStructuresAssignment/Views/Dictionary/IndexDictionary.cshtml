@@ -4,13 +4,20 @@
 }
 
 <h2>Dictionary</h2>
+<div class="search-results">
+    @if (ViewBag.SearchResults != null)
+    {
+        <p>The search returned the following result: @ViewBag.SearchResults</p>
+        <p>In @ViewBag.StopWatch seconds!</p>
+    }
+</div>
 <div class="vertical-menu column left">
     <a href="@Url.Action("IndexDictionary1", "Dictionary")">1. Add one time to Dictionary</a>
     <a href="@Url.Action("IndexDictionary2", "Dictionary")">2. Add Huge List of Items to Dictionary</a>
     <a href="@Url.Action("IndexDictionary3", "Dictionary")">3. Display Dictionary</a>
     <a href="@Url.Action("IndexDictionary4", "Dictionary")">4. Delete from Dictionary</a>
     <a href="@Url.Action("IndexDictionary5", "Dictionary")">5. Clear Dictionary</a>
-    <a href="#">6. Search Dictionary</a>
+    <a href="@Url.Action("IndexDictionary6", "Dictionary")">6. Search Dictionary</a>
     <a href="@Url.Action("Index", "Index")">7. Return to Main Menu</a>
 </div>
 
