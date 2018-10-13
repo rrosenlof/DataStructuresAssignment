@@ -62,9 +62,14 @@ p {
     font-family: 'Lora', serif;    
 }
 
-.index-menu {
-    background-color: #86b590 !important; /* Green background color */
-    align-content: center !important;
+.index-menu a {
+    background-color: #86b590!important; /* Green background color */
+    align-content: center!important;
     text-decoration: none; /* Remove underline from links */
-    background-color: #5f966b; /* Dark grey background on mouse-over */
+    font-size: xx-large;
 }
+
+.index-menu a:hover {
+    background-color: #5f966b!important; /* Dark grey background on mouse-over */
+}
+
