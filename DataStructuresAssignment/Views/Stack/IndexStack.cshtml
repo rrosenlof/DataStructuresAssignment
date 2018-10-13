@@ -3,27 +3,26 @@
     ViewBag.Title = "IndexStack";
 }
 
-
 <h2>Stack</h2>
-<div class="vertical-menu">
-    <a href="@Url.Action("IndexDictionary1", "Dictionary")">1. Add one time to Dictionary</a>
-    <a href="@Url.Action("IndexDictionary2", "Dictionary")">2. Add Huge List of Items to Dictionary</a>
-    <a href="@Url.Action("IndexDictionary3", "Dictionary")">3. Display Dictionary</a>
-    <a href="#">4. Delete from Dictionary</a>
-    <a href="#">5. Clear Dictionary</a>
-    <a href="#">6. Search Dictionary</a>
-    <a href="#">7. Return to Main Menu</a>
+<div class="vertical-menu column left">
+    <a href="@Url.Action("IndexStack1", "Stack")">1. Add one item to Stack</a>
+    <a href="@Url.Action("IndexStack2", "Stack")">2. Add Huge List of Items to Stack</a>
+    <a href="@Url.Action("IndexStack3", "Stack")">3. Display Stack</a>
+    <a href="@Url.Action("IndexStack4", "Stack")">4. Delete from Stack</a>
+    <a href="@Url.Action("IndexStack5", "Stack")">5. Clear Stack</a>
+    <a href="@Url.Action("IndexStack6", "Stack")">6. Search Stack</a>
+    <a href="@Url.Action("Index", "Index")">7. Return to Main Menu</a>
 </div>
 
 
-<div class="display_output">
+<div class="display_output column right">
 
     @if (ViewBag.Output != null)
     {
         <p>
-            @foreach (KeyValuePair<string, int> pair in ViewBag.Output)
+            @foreach (var item in ViewBag.Output)
             {
-                @pair.Key @pair.Value
+                @item
             }
         </p>
     }
