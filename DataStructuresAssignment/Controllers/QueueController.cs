@@ -63,7 +63,10 @@ namespace DataStructuresAssignment.Controllers
         // Delete From
         public ActionResult IndexQueue4()
         {
-            queStruct.Dequeue();
+            if (queStruct != null)
+            {
+                queStruct.Dequeue();
+            }
 
             return View("IndexQueue");
         }
