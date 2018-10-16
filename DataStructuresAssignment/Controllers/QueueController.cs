@@ -20,7 +20,7 @@ namespace DataStructuresAssignment.Controllers
         // GET: Queue
         public ActionResult IndexQueue()
         {
-            if (queStruct != null)
+            if (queStruct.Count != 0)
             {
                 ViewBag.Output = queStruct;
             }
@@ -31,25 +31,17 @@ namespace DataStructuresAssignment.Controllers
         // Add one
         public ActionResult IndexQueue1()
         {
-            queStruct.Clear();
-
-            queStruct.Enqueue("TEST CHOICE " + iCounter);
-
-            iCounter++;
-
+            queStruct.Enqueue(" Item " + ++iCounter + " ");
+            
             return View("IndexQueue");
         }
 
         // Add huge list
         public ActionResult IndexQueue2()
         {
-            queStruct.Clear();
-
-            int queLength = queStruct.Count + 1;
-
             for (int x = 0; x < 2000; x++)
             {
-                queStruct.Enqueue("test " + (queLength + x));
+                queStruct.Enqueue(" Item " + ++iCounter + " ");
             }
 
             return View("IndexQueue");
@@ -58,7 +50,7 @@ namespace DataStructuresAssignment.Controllers
         // Display
         public ActionResult IndexQueue3()
         {
-            if (queStruct != null)
+            if (queStruct.Count != 0)
             {
                 ViewBag.Output = queStruct;
             }
@@ -69,9 +61,17 @@ namespace DataStructuresAssignment.Controllers
         // Delete From
         public ActionResult IndexQueue4()
         {
-            if (queStruct != null)
+            if (queStruct.Count != 0)
             {
                 queStruct.Dequeue();
+                iCounter--;
+            }
+
+            else
+            {
+                ViewBag.Error = "Nothing to delete";
+
+                iCounter = 0;
             }
 
             return View("IndexQueue");
@@ -82,16 +82,33 @@ namespace DataStructuresAssignment.Controllers
         {
             queStruct.Clear();
 
+            iCounter = 0;
+
             return View("IndexQueue");
         }
 
         // Search
         public ActionResult IndexQueue6()
         {
-            if (queStruct != null)
+            Random oRand = new Random();
+            int iSearchNum = oRand.Next(1,(iCounter + 1));
+
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+
+            sw.Start();
+
+            if (queStruct.Contains(" Item " + iSearchNum + " "))
             {
-                ViewBag.Output = queStruct;
+                ViewBag.SearchResults = queStruct.ElementAt(iSearchNum - 1);
+
             }
+            else ViewBag.SearchResults = "Not Found";
+
+            sw.Stop();
+
+            TimeSpan ts = sw.Elapsed;
+
+            ViewBag.StopWatch = ts;
 
             return View("IndexQueue");
         }

@@ -31,8 +31,7 @@ namespace DataStructuresAssignment.Controllers
 
         public ActionResult IndexDictionary1() // Adds one item to the end of the dictionary
         {
-            iCounter++;
-            dictStruct.Add(" Item " + iCounter +" - ", iCounter);
+            dictStruct.Add(" Item " + ++iCounter +" - ", iCounter);
 
             return View("IndexDictionary");
         }
@@ -42,8 +41,7 @@ namespace DataStructuresAssignment.Controllers
             int x = 0;
             while(x < 2000)
             {
-                iCounter++;
-                dictStruct.Add(" Item " +  iCounter + " - ", iCounter);
+                dictStruct.Add(" Item " +  ++iCounter + " - ", iCounter);
                 x++;
             }
             
@@ -52,7 +50,7 @@ namespace DataStructuresAssignment.Controllers
 
         public ActionResult IndexDictionary3() // Displays dictionary
         {
-            if (dictStruct != null)
+            if (dictStruct.Count != 0)
             {
                 ViewBag.Output = dictStruct;
             }
@@ -71,7 +69,7 @@ namespace DataStructuresAssignment.Controllers
 
             else // If there are no items in the dictionary, nothing is deleted
             {
-                //print cannot delete
+                ViewBag.Error = "Nothing to delete";
 
                 iCounter = 0;
             }

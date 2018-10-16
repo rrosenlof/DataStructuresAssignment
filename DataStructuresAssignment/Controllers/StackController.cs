@@ -20,7 +20,7 @@ namespace DataStructuresAssignment.Controllers
         // GET: Stack
         public ActionResult IndexStack()
         {
-            if (stackStruct != null)
+            if (stackStruct.Count != 0)
             {
                 ViewBag.Output = stackStruct;
             }
@@ -31,28 +31,18 @@ namespace DataStructuresAssignment.Controllers
         // Add one
         public ActionResult IndexStack1()
         {
-            iCounter++;
-            if (ViewBag.Output != null)
-            {
-                stackStruct = ViewBag.Output;
-            }
-
-            stackStruct.Push("New Entry #" + (iCounter) + " ");
-            ViewBag.Output = stackStruct;
-
+            stackStruct.Push(" Item " + ++iCounter + " ");
+            
             return View("IndexStack");
         }
 
         // Add huge list
         public ActionResult IndexStack2()
         {
-            iCounter = 0;
-            for (int x = 1; x <= 2000; x++)
+            for (int x = 0; x < 2000; x++)
             {
-                iCounter++;
-                stackStruct.Push("New Entry #" + x + " ");
+                stackStruct.Push(" Item " + ++iCounter + " ");
             }
-            ViewBag.Output = stackStruct;
 
             return View("IndexStack");
         }
@@ -60,7 +50,7 @@ namespace DataStructuresAssignment.Controllers
         // Display
         public ActionResult IndexStack3()
         {
-            if (stackStruct != null)
+            if (stackStruct.Count != 0)
             {
                 ViewBag.Output = stackStruct;
             }
@@ -71,14 +61,15 @@ namespace DataStructuresAssignment.Controllers
         // Delete From
         public ActionResult IndexStack4()
         {
-            if (stackStruct.Contains("New Entry #" + iCounter + " "))
+            if (stackStruct.Count != 0)
             {
                 stackStruct.Pop();
-
-                iCounter--;
+                
             }
             else
             {
+                ViewBag.Error = "Nothing to delete";
+
                 iCounter = 0;
             }
             ViewBag.Output = stackStruct;
@@ -90,6 +81,7 @@ namespace DataStructuresAssignment.Controllers
         public ActionResult IndexStack5()
         {
             stackStruct.Clear();
+
             iCounter = 0;
 
             return View("IndexStack");
@@ -99,13 +91,13 @@ namespace DataStructuresAssignment.Controllers
         public ActionResult IndexStack6()
         {
             Random oRand = new Random();
-            int iSearchNum = oRand.Next(iCounter + 1);
+            int iSearchNum = oRand.Next(1, (iCounter + 1));
 
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
 
             sw.Start();
 
-            if (stackStruct.Contains("New Entry #" + iSearchNum + " "))
+            if (stackStruct.Contains(" Item " + iSearchNum + " "))
             {
                 ViewBag.SearchResults = stackStruct.ElementAt(iSearchNum - 1);
 
@@ -117,8 +109,6 @@ namespace DataStructuresAssignment.Controllers
             TimeSpan ts = sw.Elapsed;
 
             ViewBag.StopWatch = ts;
-
-            ViewBag.Output = ViewBag.SearchResults + " - Searched in " + ViewBag.StopWatch;
 
             return View("IndexStack");
         }

@@ -9,7 +9,19 @@
 }
 
 <h2>Queue</h2>
-<div class="vertical-menu">
+<div class="search-results">
+    @if (ViewBag.SearchResults != null)
+    {
+        <p>The search returned the following result: @ViewBag.SearchResults</p>
+        <p>In @ViewBag.StopWatch seconds!</p>
+    }
+    @if (ViewBag.Error != null)
+    {
+        <p>@ViewBag.Error</p>
+    }
+</div>
+
+<div class="vertical-menu column left">
     <a href="@Url.Action("IndexQueue1", "Queue")">1. Add one item to Queue</a>
     <a href="@Url.Action("IndexQueue2", "Queue")">2. Add Huge List of Items to Queue</a>
     <a href="@Url.Action("IndexQueue3", "Queue")">3. Display Queue</a>
@@ -20,7 +32,7 @@
 </div>
 
 
-<div class="display_output">
+<div class="display_output column right">
 
     @if (ViewBag.Output != null)
     {

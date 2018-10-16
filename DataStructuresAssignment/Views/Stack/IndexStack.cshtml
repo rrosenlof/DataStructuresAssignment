@@ -9,6 +9,18 @@
 }
 
 <h2>Stack</h2>
+<div class="search-results">
+    @if (ViewBag.SearchResults != null)
+    {
+        <p>The search returned the following result: @ViewBag.SearchResults</p>
+        <p>In @ViewBag.StopWatch seconds!</p>
+    }
+    @if (ViewBag.Error != null)
+    {
+        <p>@ViewBag.Error</p>
+    }
+</div>
+
 <div class="vertical-menu column left">
     <a href="@Url.Action("IndexStack1", "Stack")">1. Add one item to Stack</a>
     <a href="@Url.Action("IndexStack2", "Stack")">2. Add Huge List of Items to Stack</a>
@@ -18,7 +30,6 @@
     <a href="@Url.Action("IndexStack6", "Stack")">6. Search Stack</a>
     <a href="@Url.Action("Index", "Index")">7. Return to Main Menu</a>
 </div>
-
 
 <div class="display_output column right">
 
